@@ -12,12 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.IO;
+using Microsoft.Win32;
 
 namespace Lista3_Programowanie3_Ilona_Kwasniok
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Window1.xaml
-    /// </summary>
+   
+
     public partial class Window1 : Window
     {
 
@@ -30,6 +31,8 @@ namespace Lista3_Programowanie3_Ilona_Kwasniok
         string tmpSurname;
         string tmpCity;
         string tmpAdress;
+        private BitmapImage imageyes;
+
 
 
 
@@ -128,6 +131,28 @@ namespace Lista3_Programowanie3_Ilona_Kwasniok
         }
 
 
+        private void Img_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            {
+                string filePath;
+                openFileDialog.InitialDirectory = Environment.CurrentDirectory;
+                openFileDialog.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == true)
+                {
+
+                    filePath = openFileDialog.FileName;
+                    Uri uri1 = new Uri(filePath);
+                    ImgFile.Source = new BitmapImage(uri1);
+                    imageyes = new BitmapImage(uri1);
+                }
+            }
+        }
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
            
@@ -138,19 +163,21 @@ namespace Lista3_Programowanie3_Ilona_Kwasniok
             cityfield = City.Text;
             adressfield = Adress.Text;
 
-            if ( Surname.Text.Length < 1 || Name.Text.Length < 1 || City.Text.Length<1 || Adress.Text.Length < 1)
+
+            if (Surname.Text.Length < 1 || Name.Text.Length < 1 || City.Text.Length < 1 || Adress.Text.Length < 1)
             {
                 MessageBox.Show("Pola nie mogą być puste");
             }
-
-
-            try
+            else
             {
-                MainWindow.PersonList.Add(new MainWindow.Person() { Name = namefield, Surname = surnamefield, Pesel = peselfield, City = cityfield, Adress = adressfield });
-            }
-            catch(Exception blad)
-            {
-                MessageBox.Show(blad.Message);
+                try
+                {
+                    MainWindow.PersonList.Add(new MainWindow.Person() { Name = namefield, Surname = surnamefield, Pesel = peselfield, City = cityfield, Adress = adressfield, Img = imageyes });
+                }
+                catch (Exception blad)
+                {
+                    MessageBox.Show(blad.Message);
+                }
             }
         }
     }

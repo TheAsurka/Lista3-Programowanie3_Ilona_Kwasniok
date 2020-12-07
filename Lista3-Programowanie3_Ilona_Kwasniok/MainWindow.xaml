@@ -23,9 +23,9 @@
             
         </Grid.ColumnDefinitions>
 
-        
-        
-        <ListView Name="ListViewXAML" Grid.Row="0" Grid.ColumnSpan="5" BorderBrush="Aqua" Background="LightSalmon">
+
+
+        <ListView Name="ListViewXAML" Grid.Row="0" Grid.ColumnSpan="5" BorderBrush="Aqua" Background="LightSalmon" PreviewMouseLeftButtonUp="listView_Click">
             <ListView.View>
                 <GridView>
 

@@ -21,7 +21,8 @@
         <Grid.ColumnDefinitions >
             <ColumnDefinition  Width="*" />
             <ColumnDefinition Width="*"/>
-      
+            <ColumnDefinition Width="*"/>
+
         </Grid.ColumnDefinitions>
 
 
@@ -32,22 +33,28 @@
         <Label Grid.Row="4" Grid.Column="0" Content="Adress:" FontSize="20px" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="LightSalmon"></Label>
 
 
-        <TextBox Grid.Row="0" Grid.Column="1" BorderBrush="Black" Name="Name" Grid.ColumnSpan="2" 
-         PreviewTextInput="LetterValidationTextBox"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
+        <TextBox Grid.Row="0" Grid.Column="1" BorderBrush="Black" Name="Name" 
+         PreviewTextInput="LetterValidationTextBoxName"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
 
-        <TextBox Grid.Row="1" Grid.Column="1" BorderBrush="Black" Name="Surname" Grid.ColumnSpan="2" 
-         PreviewTextInput="LetterValidationTextBox"  VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
+        <TextBox Grid.Row="1" Grid.Column="1" BorderBrush="Black" Name="Surname" 
+         PreviewTextInput="LetterValidationTextBoxSurname"  VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
-        <TextBox Grid.Row="2" Grid.Column="1" BorderBrush="Black" Name="Pesel" Grid.ColumnSpan="2" PreviewTextInput="NumberValidationTextBox"
+        <TextBox Grid.Row="2" Grid.Column="1" BorderBrush="Black" Name="Pesel" PreviewTextInput="NumberValidationTextBox"
            MaxLength="9"  VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
 
-        <TextBox Grid.Row="3" Grid.Column="1" BorderBrush="Black" Name="City" Grid.ColumnSpan="2" 
-          PreviewTextInput="LetterValidationTextBox"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
+        <TextBox Grid.Row="3" Grid.Column="1" BorderBrush="Black" Name="City" 
+          PreviewTextInput="LetterValidationTextBoxCity"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
-        <TextBox Grid.Row="4" Grid.Column="1" BorderBrush="Black" Name="Adress" Grid.ColumnSpan="2"
-          PreviewTextInput="LetterValidationTextBox"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
+        <TextBox Grid.Row="4" Grid.Column="1" BorderBrush="Black" Name="Adress" 
+          PreviewTextInput="LetterValidationTextBoxAdress"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
+
+
+        <Image Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Name="ImgFile"/>
+
+        <Button Grid.Row="5" Grid.Column="2" Content="Obraz" Margin="0,10" FontSize="26" Background="Coral" Click="Img_Click"/>
+
 
 
         <Button Grid.Row="5" Grid.Column="0" Content="Dodaj" Margin="0,10" FontSize="26" Click="Button_Click" Background="Salmon" Grid.ColumnSpan="2"/>
