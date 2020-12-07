@@ -26,45 +26,123 @@ namespace Lista3_Programowanie3_Ilona_Kwasniok
         private string peselfield;
         private string cityfield;
         private string adressfield;
+        string tmpName;
+        string tmpSurname;
+        string tmpCity;
+        string tmpAdress;
+
+
+
+
+
         public Window1()
         {
             InitializeComponent();
         }
 
 
-        private void LetterValidationTextBox(object sender, TextCompositionEventArgs e)
+        private void LetterValidationTextBoxName(object sender, TextCompositionEventArgs e)
         {
+            
 
-            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[a-zA-Z]"))
+            string input = (sender as TextBox).Text;
+            if (Name.Text.Length > 1)
             {
-                e.Handled = true;
+                if (!Regex.IsMatch(input, @"^[A-Z]{1}[a-z]{1,81}$"))
+                {
+                    MessageBox.Show("Wielka litera!");
+                    Name.Text = tmpName;
+                   
+                }
+                tmpName = Name.Text;
             }
+
 
 
         }
 
+        private void LetterValidationTextBoxSurname(object sender, TextCompositionEventArgs e)
+        {
+
+
+            string input = (sender as TextBox).Text;
+            if (Surname.Text.Length > 1)
+            {
+                if (!Regex.IsMatch(input, @"^[A-Z]{1}[a-z]{1,81}$"))
+                {
+                    MessageBox.Show("Wielka litera!");
+                    Surname.Text = tmpSurname;
+
+                }
+                tmpSurname = Surname.Text;
+            }
+
+
+
+        }
+
+        private void LetterValidationTextBoxCity(object sender, TextCompositionEventArgs e)
+        {
+
+
+            string input = (sender as TextBox).Text;
+            if (City.Text.Length > 1)
+            {
+                if (!Regex.IsMatch(input, @"^[A-Z]{1}[a-z]{1,81}$"))
+                {
+                    MessageBox.Show("Wielka litera!");
+                    City.Text = tmpCity;
+
+                }
+                tmpCity = City.Text;
+            }
+
+        }
+
+
+        private void LetterValidationTextBoxAdress(object sender, TextCompositionEventArgs e)
+        {
+
+
+            string input = (sender as TextBox).Text;
+            if (Adress.Text.Length > 1)
+            {
+                if (!Regex.IsMatch(input, @"^[A-Z]{1}[a-z]{1,81}$"))
+                {
+                    MessageBox.Show("Wielka litera!");
+                    Adress.Text = tmpAdress;
+
+                }
+                tmpAdress = Adress.Text;
+            }
+
+        }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            try
-            {
+           
                 Regex regex = new Regex("[^0-9]+");
                 e.Handled = regex.IsMatch(e.Text);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Podana wartość jest zła!", ex.Message);
-            }
+
+            
         }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+           
+
             namefield = Name.Text;
             surnamefield = Surname.Text;
             peselfield = Pesel.Text;
             cityfield = City.Text;
             adressfield = Adress.Text;
+
+            if ( Surname.Text.Length < 1 || Name.Text.Length < 1 || City.Text.Length<1 || Adress.Text.Length < 1)
+            {
+                MessageBox.Show("Pola nie mogą być puste");
+            }
+
 
             try
             {
