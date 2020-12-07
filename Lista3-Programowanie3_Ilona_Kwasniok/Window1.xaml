@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Lista3_Programowanie3_Ilona_Kwasniok"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
-    <Grid >
+    <Grid  Background="PeachPuff" >
 
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
@@ -51,9 +51,9 @@
           PreviewTextInput="LetterValidationTextBoxAdress"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
 
-        <Image Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Name="ImgFile"/>
+        <Image Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" Name="ImgFile"/>
 
-        <Button Grid.Row="5" Grid.Column="2" Content="Obraz" Margin="0,10" FontSize="26" Background="Coral" Click="Img_Click"/>
+        <Button Grid.Row="5" Grid.Column="2" Content="Obraz" Margin="0,10" FontSize="26" Background="DarkSalmon" Click="Img_Click"/>
 
 
 
