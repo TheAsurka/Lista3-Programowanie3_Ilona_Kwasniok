@@ -27,10 +27,10 @@ namespace Lista3_Programowanie3_Ilona_Kwasniok
         private string peselfield;
         private string cityfield;
         private string adressfield;
-        string tmpName;
-        string tmpSurname;
-        string tmpCity;
-        string tmpAdress;
+        string stringName;
+        string stringSurname;
+        string stringCity;
+        string stringAdress;
         private BitmapImage imageyes;
 
 
@@ -44,79 +44,126 @@ namespace Lista3_Programowanie3_Ilona_Kwasniok
         }
 
 
-        private void LetterValidationTextBoxName(object sender, TextCompositionEventArgs e)
+        private void LetterValidationTextBoxName(object sender, TextChangedEventArgs e)
         {
-            
-
             string input = (sender as TextBox).Text;
+            if (Name.Text.Length == 1)
+            {
+
+                if (!Regex.IsMatch(input, "[A-Z]{1}"))
+                {
+                    MessageBox.Show("Wielka litera!");
+                    Name.Text = stringAdress;
+
+                }
+                stringAdress = Name.Text;
+            }
+
+  
             if (Name.Text.Length > 1)
             {
                 if (!Regex.IsMatch(input, @"^[A-Z]{1}[a-z]{1,81}$"))
                 {
                     MessageBox.Show("Wielka litera!");
-                    Name.Text = tmpName;
+                    Name.Text = stringName;
                    
                 }
-                tmpName = Name.Text;
+                stringName = Name.Text;
             }
 
 
 
         }
 
-        private void LetterValidationTextBoxSurname(object sender, TextCompositionEventArgs e)
+        private void LetterValidationTextBoxSurname(object sender, TextChangedEventArgs e)
         {
-
-
             string input = (sender as TextBox).Text;
+            if (Surname.Text.Length == 1)
+            {
+
+                if (!Regex.IsMatch(input, "[A-Z]{1}"))
+                {
+                    MessageBox.Show("Wielka litera!");
+                    Surname.Text = stringAdress;
+
+                }
+                stringAdress = Surname.Text;
+            }
+
+         
             if (Surname.Text.Length > 1)
             {
                 if (!Regex.IsMatch(input, @"^[A-Z]{1}[a-z]{1,81}$"))
                 {
                     MessageBox.Show("Wielka litera!");
-                    Surname.Text = tmpSurname;
+                    Surname.Text = stringSurname;
 
                 }
-                tmpSurname = Surname.Text;
+                stringSurname = Surname.Text;
             }
 
 
 
         }
 
-        private void LetterValidationTextBoxCity(object sender, TextCompositionEventArgs e)
+        private void LetterValidationTextBoxCity(object sender, TextChangedEventArgs e)
         {
 
-
             string input = (sender as TextBox).Text;
+            if (City.Text.Length == 1)
+            {
+
+                if (!Regex.IsMatch(input, "[A-Z]{1}"))
+                {
+                    MessageBox.Show("Wielka litera!");
+                    City.Text = stringAdress;
+
+                }
+                stringAdress = City.Text;
+            }
+
+            
             if (City.Text.Length > 1)
             {
                 if (!Regex.IsMatch(input, @"^[A-Z]{1}[a-z]{1,81}$"))
                 {
                     MessageBox.Show("Wielka litera!");
-                    City.Text = tmpCity;
+                    City.Text = stringCity;
 
                 }
-                tmpCity = City.Text;
+                stringCity = City.Text;
             }
 
         }
 
 
-        private void LetterValidationTextBoxAdress(object sender, TextCompositionEventArgs e)
+        private void LetterValidationTextBoxAdress(object sender, TextChangedEventArgs e)
         {
 
 
             string input = (sender as TextBox).Text;
+           if (Adress.Text.Length == 1)
+           {
+
+                    if (!Regex.IsMatch(input, "[A-Z]{1}"))
+                    {
+                        MessageBox.Show("Wielka litera!");
+                        Adress.Text = stringAdress;
+
+                    }
+                    stringAdress = Adress.Text;
+            }
+
             if (Adress.Text.Length > 1)
             {
-                if (!Regex.IsMatch(input, @"^[A-Z]{1}[a-z]{1,81}$"))
+
+                if (!Regex.IsMatch(input, @"[A-Z]{1}[a-z]{1,81}$"))
                 {
                     MessageBox.Show("Wielka litera!");
-                    Adress.Text = tmpAdress;
+                    Adress.Text = stringAdress;
 
                 }
-                tmpAdress = Adress.Text;
+                stringAdress = Adress.Text;
             }
 
         }
@@ -128,6 +175,13 @@ namespace Lista3_Programowanie3_Ilona_Kwasniok
                 e.Handled = regex.IsMatch(e.Text);
 
             
+        }
+
+
+        private void ExtraLettersValidation(object sender, TextCompositionEventArgs e) 
+        {
+            if (!Regex.IsMatch(e.Text, @"^\p{L}"))
+                e.Handled = true;
         }
 
 

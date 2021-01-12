@@ -34,21 +34,21 @@
 
 
         <TextBox Grid.Row="0" Grid.Column="1" BorderBrush="Black" Name="Name" 
-         PreviewTextInput="LetterValidationTextBoxName"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
+         TextChanged="LetterValidationTextBoxName" PreviewTextInput=" ExtraLettersValidation"  VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
 
         <TextBox Grid.Row="1" Grid.Column="1" BorderBrush="Black" Name="Surname" 
-         PreviewTextInput="LetterValidationTextBoxSurname"  VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
+         TextChanged="LetterValidationTextBoxSurname" PreviewTextInput=" ExtraLettersValidation"  VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
         <TextBox Grid.Row="2" Grid.Column="1" BorderBrush="Black" Name="Pesel" PreviewTextInput="NumberValidationTextBox"
            MaxLength="9"  VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
 
         <TextBox Grid.Row="3" Grid.Column="1" BorderBrush="Black" Name="City" 
-          PreviewTextInput="LetterValidationTextBoxCity"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
+         TextChanged="LetterValidationTextBoxCity" PreviewTextInput=" ExtraLettersValidation"  VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
         <TextBox Grid.Row="4" Grid.Column="1" BorderBrush="Black" Name="Adress" 
-          PreviewTextInput="LetterValidationTextBoxAdress"   VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
+          TextChanged="LetterValidationTextBoxAdress"   PreviewTextInput=" ExtraLettersValidation"  VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" Width="220"/>
 
 
         <Image Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" Name="ImgFile"/>
